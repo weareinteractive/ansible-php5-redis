@@ -2,6 +2,7 @@
 
 - hosts: all
   roles:
+    - franklinkim.apt
     - franklinkim.php5-redis
   vars:
     apt_repositories:

@@ -28,6 +28,12 @@ Using `git`:
 $ git clone https://github.com/weareinteractive/ansible-php5-redis.git
 ```
 
+## Dependencies
+
+* PHP 5.4
+* [franklinkim.php5](https://github.com/weareinteractive/ansible-php5)
+* [franklinkim.redis](https://github.com/weareinteractive/ansible-redis)
+
 ## Variables
 
 Here is a list of all the default variables for this role, which are also available in `defaults/main.yml`.
@@ -47,6 +53,7 @@ php5_redis_state: present
 ```
 - hosts: all
   roles:
+    - franklinkim.apt
     - franklinkim.php5-redis
   vars:
     apt_repositories:
