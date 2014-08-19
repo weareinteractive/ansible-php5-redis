@@ -1,0 +1,46 @@
+---
+
+- name: Adding ini file
+  template: >
+    src=etc-php5-mods-available-redis.ini.j2
+    dest=/etc/php5/mods-available/redis.ini
+    owner=root
+    group=root
+    mode=0644
+  tags:
+    - web
+    - php5-redis
+
+- name: Configuring redis
+  ini_file: >
+    dest=/etc/php5/mods-available/redis.ini
+    section={{ item.section|default('redis') }}
+    option={{ item.section|default('redis') }}.{{ item.option }}
+    value={{ item.value }}
+    state=present
+  with_items: php5_redis_config
+  tags:
+    - web
+    - php5-redis
+
+- name: Enabling module
+  command: >
+    php5enmod redis
+    creates=/etc/php5/conf.d/*-redis.ini
+  when: php5_redis_state != 'absent'
+  with_items: php5_modules
+  tags:
+    - web
+    - php5
+    - modules
+
+- name: Disabling module
+  command: >
+    php5dismod redis
+    removes=/etc/php5/conf.d/*-redis.init
+  when: php5_redis_state == 'absent'
+  with_items: php5_modules
+  tags:
+    - web
+    - php5
+    - modules

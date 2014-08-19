@@ -1,0 +1,11 @@
+---
+# For more information about default variables see:
+# http://www.ansibleworks.com/docs/playbooks_variables.html#id26
+#
+# php5_redis_config:
+#   - { option: 'foo', value: 'bar' }
+
+# ini settings
+php5_redis_config: []
+# set state: present | absent
+php5_redis_state: present

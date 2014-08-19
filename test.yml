@@ -1,0 +1,9 @@
+---
+
+- hosts: all
+  roles:
+    - franklinkim.php5-redis
+  vars:
+    apt_repositories:
+      - 'ppa:ondrej/php5-oldstable'
+    php5_redis_state: present
