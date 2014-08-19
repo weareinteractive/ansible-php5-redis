@@ -2,11 +2,12 @@
 
 - name: Getting sources
   git: >
-    repo=git://github.com/nicolasff/phpredis.git
+    repo=https://github.com/nicolasff/phpredis.git
     dest=/usr/local/src/phpredis
   tags:
     - web
     - php5-redis
+    - install
 
 - name: Make clean
   shell: >
@@ -16,3 +17,4 @@
   tags:
     - web
     - php5-redis
+    - install

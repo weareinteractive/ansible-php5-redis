@@ -10,6 +10,7 @@
   tags:
     - web
     - php5-redis
+    - config
 
 - name: Configuring redis
   ini_file: >
@@ -22,6 +23,7 @@
   tags:
     - web
     - php5-redis
+    - config
 
 - name: Enabling module
   command: >
@@ -31,8 +33,8 @@
   with_items: php5_modules
   tags:
     - web
-    - php5
-    - modules
+    - php5-redis
+    - config
 
 - name: Disabling module
   command: >
@@ -42,5 +44,5 @@
   with_items: php5_modules
   tags:
     - web
-    - php5
-    - modules
+    - php5-redis
+    - config
